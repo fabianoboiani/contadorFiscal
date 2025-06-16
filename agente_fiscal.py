@@ -29,13 +29,12 @@ agent_executor = create_react_agent(
     debug=True
 )
 
-# Loop interativo
-print("🤖 Agente Fiscal pronto! Pergunte algo ou digite 'sair'.")
-while True:
-    pergunta = input("\nPergunta: ")
-    if pergunta.lower() in ["sair", "exit", "quit"]:
-        break
-
-    mensagens = [HumanMessage(content=pergunta)]
-    resultado = agent_executor.invoke({"messages": mensagens})
-    print("\nResposta:", resultado["messages"][-1].content)
+if __name__ == "__main__":
+    print("🤖 Agente Fiscal pronto! Pergunte algo ou digite 'sair'.")
+    while True:
+        pergunta = input("\nPergunta: ")
+        if pergunta.lower() in ["sair", "exit", "quit"]:
+            break
+        mensagens = [HumanMessage(content=pergunta)]
+        resultado = agent_executor.invoke({"messages": mensagens})
+        print("\nResposta:", resultado["messages"][-1].content)
